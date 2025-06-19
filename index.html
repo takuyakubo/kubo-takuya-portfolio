@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>久保卓也 - AI・機械学習エキスパート</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 0;
+            color: white;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            border: 4px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        main {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-top: -50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section {
+            padding: 50px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #667eea;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            line-height: 1.8;
+            color: #666;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #667eea, #764ba2);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-left: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -45px;
+            top: 30px;
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #667eea;
+        }
+
+        .timeline-date {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .timeline-company {
+            color: #764ba2;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .projects {
+            margin-top: 15px;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 5px 5px 5px 0;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 10px 15px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+        }
+
+        .publications {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .publications h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .publication-item {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 4px solid #764ba2;
+        }
+
+        .publication-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .publication-details {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 30px 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .timeline {
+                padding-left: 20px;
+            }
+            
+            .timeline-item {
+                margin-left: 20px;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile-img">🧑‍💻</div>
+            <h1>久保卓也</h1>
+            <p class="subtitle">AI・機械学習エキスパート | 執行役員CAIO | 量子情報理論研究者</p>
+            <div class="contact-info">
+                <div class="contact-item">📧 Email: contact@example.com</div>
+                <div class="contact-item">🐙 GitHub: @takuyakubo</div>
+                <div class="contact-item">📍 Location: 日本</div>
+            </div>
+        </header>
+
+        <main>
+            <section class="section fade-in">
+                <h2>About Me</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>🎓 学術背景</h3>
+                        <p>量子情報理論、情報幾何学、数理統計学を専門とし、電気通信大学で博士課程を修了。国際会議での発表や論文執筆の経験を持つ研究者として、理論的基盤を実務に活かしています。</p>
+                    </div>
+                    <div class="card">
+                        <h3>💼 ビジネス経験</h3>
+                        <p>スタートアップから大企業まで幅広い環境で、AI・機械学習プロジェクトをリード。売上を20百万円から3億円まで成長させた実績を持ち、技術者から経営幹部まで多角的な視点でビジネスを推進しています。</p>
+                    </div>
+                    <div class="card">
+                        <h3>🚀 技術専門性</h3>
+                        <p>生成AI、LLM、RAG、エッジAI、MLOpsなど最新のAI技術に精通。理論から実装、運用まで一貫したソリューション提供が可能で、特にLLMを活用したプロダクト開発において豊富な経験を有しています。</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section fade-in">
+                <h2>Career History</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2020年11月 - 2025年1月</div>
+                        <div class="timeline-title">執行役員CAIO・事業部長・部長</div>
+                        <div class="timeline-company">AMBL株式会社（旧 株式会社エイアイフィールド）</div>
+                        <p>AI開発部門のマネジメントを担当し、売上を20百万円から3億円まで成長させる。機械学習エンジニアリングのSES部門を統括し、組織マネジメントから人材調達まで幅広く責任を持つ。</p>
+                        <div class="projects">
+                            <span class="project-tag">製薬企業RAG構築</span>
+                            <span class="project-tag">運輸企業local LLM</span>
+                            <span class="project-tag">通信企業MaaS広告</span>
+                            <span class="project-tag">エネルギー最適化</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">2022年11月 - 2024年8月</div>
+                        <div class="timeline-title">社外取締役</div>
+                        <div class="timeline-company">株式会社eduleap</div>
+                        <p>教育ビジネスにおける機械学習・生成AIの活用を監修。金融・銀行業向けAIワークショップの企画・実施や、学習支援システムのAI機能開発を指導。</p>
+                        <div class="projects">
+                            <span class="project-tag">金融AIワークショップ</span>
+                            <span class="project-tag">教育AI講演</span>
+                            <span class="project-tag">学習支援システム</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">2016年5月 - 2020年10月</div>
+                        <div class="timeline-title">研究員</div>
+                        <div class="timeline-company">ジョイズ株式会社</div>
+                        <p>自然言語処理を用いたアプリケーション開発をリード。単語運用能力問題の自動生成器や文法解析器の開発、音声処理研究など、言語技術の実用化に従事。</p>
+                        <div class="projects">
+                            <span class="project-tag">自然言語処理</span>
+                            <span class="project-tag">音声合成研究</span>
+                            <span class="project-tag">統計処理</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">2015年10月 - 2016年5月</div>
+                        <div class="timeline-title">エンジニア</div>
+                        <div class="timeline-company">株式会社Pluto</div>
+                        <p>IoTプロダクトの開発に従事。ファームウェア書き込みツールの作成や、Webアプリケーション開発を担当し、製品の生産システム構築に貢献。</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section fade-in">
+                <h2>LLM・生成AI Projects</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>🏥 製薬企業RAG構築案件</h3>
+                        <p><strong>期間:</strong> 2023年12月 - 2025年1月<br>
+                        <strong>技術:</strong> AOAI, OpenAI, AWS Bedrock, Gemini<br>
+                        生成AI・自然言語処理の知見監修からPoC実験計画、言語系生成AIを用いた機能開発まで一貫して担当。pydantic、AWS Lambdaを活用した実装を行う。</p>
+                    </div>
+                    <div class="card">
+                        <h3>🚛 大手運輸企業RAG構築</h3>
+                        <p><strong>期間:</strong> 2024年5月 - 2024年11月<br>
+                        <strong>技術:</strong> 8Bレベル local LLM, Verba改変, ElasticSearch<br>
+                        エンド顧客への説明から技術監修、PoC開発まで担当。ローカル環境でのLLM活用による高セキュリティなRAGシステムの構築をリード。</p>
+                    </div>
+                    <div class="card">
+                        <h3>📺 大手広告企業LLM広告生成</h3>
+                        <p><strong>期間:</strong> 2023年5月 - 2024年2月<br>
+                        <strong>技術:</strong> 生成AI, 自然言語処理, 方言合成<br>
+                        テレビ放送情報から広告を生成するアプリケーションのPoC開発。方言合成技術の検討からアプリケーションのメンテナンスまで幅広く対応。</p>
+                    </div>
+                    <div class="card">
+                        <h3>📡 大手通信企業LLM知見共有</h3>
+                        <p><strong>期間:</strong> 2023年12月 - 2024年3月<br>
+                        <strong>内容:</strong> local LLM知見のドキュメント化・講師<br>
+                        生成AI・自然言語処理の最新知見をまとめ、大手通信企業の社内向けに知見共有の講師を務める。実践的なLLM活用方法を指導。</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section fade-in">
+                <h2>Skills & Expertise</h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>🤖 AI・機械学習</h3>
+                        <div class="skill-item">生成AI (GPT, Gemini, Bedrock)</div>
+                        <div class="skill-item">大規模言語モデル (LLM)</div>
+                        <div class="skill-item">RAG (Retrieval-Augmented Generation)</div>
+                        <div class="skill-item">自然言語処理</div>
+                        <div class="skill-item">画像処理 (YOLO, エッジAI)</div>
+                        <div class="skill-item">統計的機械学習</div>
+                        <div class="skill-item">MLOps</div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>💻 プログラミング</h3>
+                        <div class="skill-item">Python</div>
+                        <div class="skill-item">SQL</div>
+                        <div class="skill-item">Docker</div>
+                        <div class="skill-item">AWS (EC2, S3, Lambda)</div>
+                        <div class="skill-item">GCP (BigQuery)</div>
+                        <div class="skill-item">Git</div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>📊 専門領域</h3>
+                        <div class="skill-item">量子情報理論</div>
+                        <div class="skill-item">情報幾何学</div>
+                        <div class="skill-item">数理統計学</div>
+                        <div class="skill-item">行動計量学</div>
+                        <div class="skill-item">認知言語学</div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🎯 マネジメント</h3>
+                        <div class="skill-item">組織マネジメント</div>
+                        <div class="skill-item">プロダクト開発</div>
+                        <div class="skill-item">人材調達・育成</div>
+                        <div class="skill-item">事業戦略</div>
+                        <div class="skill-item">顧客折衝</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section fade-in">
+                <h2>Publications & Presentations</h2>
+                <div class="publications">
+                    <h3>📄 学術論文</h3>
+                    <div class="publication-item">
+                        <div class="publication-title">A Fundamental Inequality for Lower-Bounding the Error Probability for Classical and Classical-Quantum Multiple Access Channels and Its Applications</div>
+                        <div class="publication-details">IEICE Transactions on Fundamentals, E98.A, no.12, pp. 2376-2383, 2015</div>
+                    </div>
+                </div>
+                
+                <div class="publications">
+                    <h3>🎤 招待講演</h3>
+                    <div class="publication-item">
+                        <div class="publication-title">スタートアップ・中小企業における機械学習等の研究活動</div>
+                        <div class="publication-details">第45回情報理論とその応用シンポジウム (SITA2022) 基調講演, 2022年11月</div>
+                    </div>
+                </div>
+                
+                <div class="publications">
+                    <h3>🌍 国際会議</h3>
+                    <div class="publication-item">
+                        <div class="publication-title">Lower bounds on the error probability in classical and quantum state discrimination</div>
+                        <div class="publication-details">2012 International Symposium on Information Theory and its Applications (ISITA2012)</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Intersection Observer for fade-in animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add parallax effect to header
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const header = document.querySelector('header');
+            if (header) {
+                header.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
