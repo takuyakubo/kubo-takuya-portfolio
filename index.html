@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>久保卓也 - AI・機械学習エキスパート</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -11,80 +15,98 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-color: #000;
+            --secondary-color: #666;
+            --light-gray: #f7f7f7;
+            --border-color: #e5e5e5;
+            --accent-color: #0066ff;
+            --max-width: 1000px;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--primary-color);
+            background: #fff;
             min-height: 100vh;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: var(--max-width);
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px;
         }
 
         header {
-            text-align: center;
-            padding: 60px 0;
-            color: white;
-        }
-
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.1);
-            margin: 0 auto 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-            border: 4px solid rgba(255,255,255,0.3);
-            backdrop-filter: blur(10px);
+            padding: 80px 0 60px;
+            border-bottom: 1px solid var(--border-color);
         }
 
         h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
         }
 
         .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 30px;
+            font-size: 1.25rem;
+            color: var(--secondary-color);
+            margin-bottom: 40px;
+            font-weight: 400;
         }
 
         .contact-info {
             display: flex;
-            justify-content: center;
-            gap: 30px;
+            gap: 20px;
             flex-wrap: wrap;
+            align-items: center;
         }
 
         .contact-item {
-            background: rgba(255,255,255,0.1);
-            padding: 10px 20px;
-            border-radius: 25px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px;
+            border-radius: 8px;
+        }
+
+        .contact-item:hover {
+            color: var(--accent-color);
+            background: var(--light-gray);
+            transform: translateY(-2px);
+        }
+
+        .contact-item i {
+            font-size: 1.1rem;
+        }
+
+        .contact-item img {
+            width: 1.1rem;
+            height: 1.1rem;
+            object-fit: contain;
+        }
+
+        .contact-text {
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
         }
 
         main {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
-            margin-top: -50px;
-            position: relative;
-            z-index: 1;
+            background: transparent;
         }
 
         .section {
-            padding: 50px;
-            border-bottom: 1px solid #eee;
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .section:last-child {
@@ -92,260 +114,339 @@
         }
 
         .section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #667eea;
-            position: relative;
+            font-size: 1.75rem;
+            margin-bottom: 40px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
         }
 
-        .section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 2px;
+        .intro-text {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--secondary-color);
+            margin-bottom: 40px;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
         }
 
         .card {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 15px;
-            border-left: 5px solid #667eea;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            padding: 0;
+            background: transparent;
         }
 
         .card h3 {
-            color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-weight: 600;
         }
 
         .card p {
-            line-height: 1.8;
-            color: #666;
+            line-height: 1.7;
+            color: var(--secondary-color);
+            font-size: 0.95rem;
         }
 
         .timeline {
             position: relative;
-            padding-left: 30px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 15px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, #667eea, #764ba2);
+            padding-left: 0;
         }
 
         .timeline-item {
-            position: relative;
-            margin-bottom: 40px;
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            margin-left: 30px;
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -45px;
-            top: 30px;
-            width: 12px;
-            height: 12px;
-            background: #667eea;
-            border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 0 0 3px #667eea;
+        .timeline-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
         }
 
-        .timeline-date {
-            color: #667eea;
-            font-weight: bold;
-            margin-bottom: 10px;
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .timeline-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #333;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .timeline-date {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            font-family: 'JetBrains Mono', monospace;
         }
 
         .timeline-company {
-            color: #764ba2;
-            font-weight: bold;
-            margin-bottom: 15px;
+            color: var(--secondary-color);
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .timeline-description {
+            color: var(--secondary-color);
+            line-height: 1.7;
+            font-size: 0.95rem;
         }
 
         .projects {
-            margin-top: 15px;
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
         }
 
         .project-tag {
             display: inline-block;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin: 5px 5px 5px 0;
+            background: var(--light-gray);
+            color: var(--primary-color);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
         }
 
         .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .skill-category {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
+            gap: 40px;
         }
 
         .skill-category h3 {
-            color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
 
         .skill-item {
-            background: white;
-            padding: 10px 15px;
-            margin: 8px 0;
-            border-radius: 8px;
-            border-left: 3px solid #667eea;
+            color: var(--secondary-color);
+            margin: 10px 0;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .skill-item::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            opacity: 0.5;
         }
 
         .publications {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
         }
 
         .publications h3 {
-            color: #667eea;
-            margin-bottom: 15px;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
 
         .publication-item {
-            background: white;
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 10px;
-            border-left: 4px solid #764ba2;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .publication-item:last-child {
+            border-bottom: none;
         }
 
         .publication-title {
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            line-height: 1.6;
         }
 
         .publication-details {
-            color: #666;
+            color: var(--secondary-color);
             font-size: 0.9rem;
+            font-family: 'JetBrains Mono', monospace;
         }
 
         @media (max-width: 768px) {
             .container {
-                padding: 10px;
+                padding: 20px;
+            }
+            
+            header {
+                padding: 40px 0 30px;
             }
             
             h1 {
-                font-size: 2rem;
+                font-size: 1.75rem;
             }
             
-            .section {
-                padding: 30px 20px;
+            .subtitle {
+                font-size: 1rem;
             }
             
             .contact-info {
+                gap: 15px;
+            }
+            
+            .section {
+                padding: 40px 0;
+            }
+            
+            .section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .timeline-header {
                 flex-direction: column;
-                align-items: center;
+                gap: 4px;
             }
             
-            .timeline {
-                padding-left: 20px;
+            .grid {
+                gap: 30px;
             }
             
-            .timeline-item {
-                margin-left: 20px;
+            .skills-container {
+                gap: 30px;
             }
         }
 
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Hover effects */
+        a {
+            transition: color 0.2s ease;
+        }
+
+        /* Selection color */
+        ::selection {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light-gray);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #999;
+        }
+
+        /* Link hover animations - removed since icons don't need underlines */
+
+        /* Subtle hover effect for project tags */
+        .project-tag {
+            transition: all 0.2s ease;
+            cursor: default;
+        }
+
+        .project-tag:hover {
+            background: #e5e5e5;
+            transform: translateY(-1px);
+        }
+
+        /* Smooth reveal for sections */
+        .section {
+            position: relative;
+        }
+
+        /* Navigation (future enhancement) */
+        .nav-hint {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-hint.visible {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <div class="profile-img">🧑‍💻</div>
-            <h1>久保卓也</h1>
-            <p class="subtitle">AI・機械学習エキスパート | 執行役員CAIO | 量子情報理論研究者</p>
+            <h1>久保卓也, Ph.D.</h1>
+            <p class="subtitle">AI・機械学習エキスパート | 量子情報理論研究者</p>
             <div class="contact-info">
-                <div class="contact-item">📧 Email: contact@example.com</div>
-                <div class="contact-item">🐙 GitHub: @takuyakubo</div>
-                <div class="contact-item">📍 Location: 日本</div>
+                <a href="mailto:contact@example.com" class="contact-item" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://github.com/takuyakubo" class="contact-item" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://zenn.dev/questlico" class="contact-item" target="_blank" title="Zenn">
+                    <img src="icons/zenn-logo-only.svg" alt="Zenn" />
+                </a>
+                <a href="https://note.com/takuya_kubo_1986" class="contact-item" target="_blank" title="note">
+                    <img src="icons/note-icon.png" alt="note" />
+                </a>
+                <a href="https://qiita.com/takuyakubo" class="contact-item" target="_blank" title="Qiita">
+                    <img src="icons/qiita-icon.png" alt="Qiita" />
+                </a>
             </div>
         </header>
 
         <main>
             <section class="section fade-in">
-                <h2>About Me</h2>
+                <h2>About</h2>
+                <p class="intro-text">量子情報理論の研究者としてキャリアをスタートし、現在はAI・機械学習エキスパートとして活動しています。理論的基盤と実践的経験を組み合わせ、企業の技術革新と事業成長を支援しています。</p>
                 <div class="grid">
                     <div class="card">
-                        <h3>🎓 学術背景</h3>
-                        <p>量子情報理論、情報幾何学、数理統計学を専門とし、電気通信大学で博士課程を修了。国際会議での発表や論文執筆の経験を持つ研究者として、理論的基盤を実務に活かしています。</p>
+                        <h3>学術背景</h3>
+                        <p>電気通信大学で博士号（Ph.D.）を取得。量子情報理論、情報幾何学、数理統計学を専門とし、国際会議での発表や論文執筆を通じて理論研究に従事。</p>
                     </div>
                     <div class="card">
-                        <h3>💼 ビジネス経験</h3>
-                        <p>スタートアップから大企業まで幅広い環境で、AI・機械学習プロジェクトをリード。売上を20百万円から3億円まで成長させた実績を持ち、技術者から経営幹部まで多角的な視点でビジネスを推進しています。</p>
+                        <h3>ビジネス実績</h3>
+                        <p>スタートアップから大企業まで幅広い環境でAIプロジェクトをリード。売上を立ち上げ期から3億円まで成長させた実績を持つ。</p>
                     </div>
                     <div class="card">
-                        <h3>🚀 技術専門性</h3>
-                        <p>生成AI、LLM、RAG、エッジAI、MLOpsなど最新のAI技術に精通。理論から実装、運用まで一貫したソリューション提供が可能で、特にLLMを活用したプロダクト開発において豊富な経験を有しています。</p>
+                        <h3>技術専門性</h3>
+                        <p>生成AI、LLM、RAG、エッジAI、MLOpsなど最新のAI技術に精通。理論から実装、運用まで一貫したソリューション提供が可能。</p>
                     </div>
                 </div>
             </section>
 
             <section class="section fade-in">
-                <h2>Career History</h2>
+                <h2>Experience</h2>
                 <div class="timeline">
                     <div class="timeline-item">
-                        <div class="timeline-date">2020年11月 - 2025年1月</div>
-                        <div class="timeline-title">執行役員CAIO・事業部長・部長</div>
+                        <div class="timeline-header">
+                            <div class="timeline-title">執行役員CAIO・事業部長・部長・データサイエンティスト</div>
+                            <div class="timeline-date">2020.11 - 2025.01</div>
+                        </div>
                         <div class="timeline-company">AMBL株式会社（旧 株式会社エイアイフィールド）</div>
-                        <p>AI開発部門のマネジメントを担当し、売上を20百万円から3億円まで成長させる。機械学習エンジニアリングのSES部門を統括し、組織マネジメントから人材調達まで幅広く責任を持つ。</p>
+                        <p class="timeline-description">AI開発部門のマネジメントを担当し、売上を立ち上げ期から3億円まで成長させる。機械学習エンジニアリングのSES部門を統括し、組織マネジメントから人材調達まで幅広く責任を持つ。</p>
                         <div class="projects">
                             <span class="project-tag">製薬企業RAG構築</span>
                             <span class="project-tag">運輸企業local LLM</span>
@@ -355,10 +456,12 @@
                     </div>
                     
                     <div class="timeline-item">
-                        <div class="timeline-date">2022年11月 - 2024年8月</div>
-                        <div class="timeline-title">社外取締役</div>
+                        <div class="timeline-header">
+                            <div class="timeline-title">社外取締役</div>
+                            <div class="timeline-date">2022.11 - 2024.08</div>
+                        </div>
                         <div class="timeline-company">株式会社eduleap</div>
-                        <p>教育ビジネスにおける機械学習・生成AIの活用を監修。金融・銀行業向けAIワークショップの企画・実施や、学習支援システムのAI機能開発を指導。</p>
+                        <p class="timeline-description">教育ビジネスにおける機械学習・生成AIの活用を監修。金融・銀行業向けAIワークショップの企画・実施や、学習支援システムのAI機能開発を指導。</p>
                         <div class="projects">
                             <span class="project-tag">金融AIワークショップ</span>
                             <span class="project-tag">教育AI講演</span>
@@ -367,10 +470,12 @@
                     </div>
                     
                     <div class="timeline-item">
-                        <div class="timeline-date">2016年5月 - 2020年10月</div>
-                        <div class="timeline-title">研究員</div>
+                        <div class="timeline-header">
+                            <div class="timeline-title">研究員</div>
+                            <div class="timeline-date">2016.05 - 2020.10</div>
+                        </div>
                         <div class="timeline-company">ジョイズ株式会社</div>
-                        <p>自然言語処理を用いたアプリケーション開発をリード。単語運用能力問題の自動生成器や文法解析器の開発、音声処理研究など、言語技術の実用化に従事。</p>
+                        <p class="timeline-description">自然言語処理を用いたアプリケーション開発をリード。単語運用能力問題の自動生成器や文法解析器の開発、音声処理研究など、言語技術の実用化に従事。</p>
                         <div class="projects">
                             <span class="project-tag">自然言語処理</span>
                             <span class="project-tag">音声合成研究</span>
@@ -379,68 +484,41 @@
                     </div>
                     
                     <div class="timeline-item">
-                        <div class="timeline-date">2015年10月 - 2016年5月</div>
-                        <div class="timeline-title">エンジニア</div>
-                        <div class="timeline-company">株式会社Pluto</div>
-                        <p>IoTプロダクトの開発に従事。ファームウェア書き込みツールの作成や、Webアプリケーション開発を担当し、製品の生産システム構築に貢献。</p>
+                        <div class="timeline-header">
+                            <div class="timeline-title">エンジニア</div>
+                            <div class="timeline-date">2015.10 - 2016.05</div>
+                        </div>
+                        <div class="timeline-company">株式会社Crossdoor (旧 株式会社Pluto)</div>
+                        <p class="timeline-description">IoTプロダクトの開発に従事。ファームウェア書き込みツールの作成や、Webアプリケーション開発を担当し、製品の生産システム構築に貢献。</p>
                     </div>
                 </div>
             </section>
 
-            <section class="section fade-in">
-                <h2>LLM・生成AI Projects</h2>
-                <div class="grid">
-                    <div class="card">
-                        <h3>🏥 製薬企業RAG構築案件</h3>
-                        <p><strong>期間:</strong> 2023年12月 - 2025年1月<br>
-                        <strong>技術:</strong> AOAI, OpenAI, AWS Bedrock, Gemini<br>
-                        生成AI・自然言語処理の知見監修からPoC実験計画、言語系生成AIを用いた機能開発まで一貫して担当。pydantic、AWS Lambdaを活用した実装を行う。</p>
-                    </div>
-                    <div class="card">
-                        <h3>🚛 大手運輸企業RAG構築</h3>
-                        <p><strong>期間:</strong> 2024年5月 - 2024年11月<br>
-                        <strong>技術:</strong> 8Bレベル local LLM, Verba改変, ElasticSearch<br>
-                        エンド顧客への説明から技術監修、PoC開発まで担当。ローカル環境でのLLM活用による高セキュリティなRAGシステムの構築をリード。</p>
-                    </div>
-                    <div class="card">
-                        <h3>📺 大手広告企業LLM広告生成</h3>
-                        <p><strong>期間:</strong> 2023年5月 - 2024年2月<br>
-                        <strong>技術:</strong> 生成AI, 自然言語処理, 方言合成<br>
-                        テレビ放送情報から広告を生成するアプリケーションのPoC開発。方言合成技術の検討からアプリケーションのメンテナンスまで幅広く対応。</p>
-                    </div>
-                    <div class="card">
-                        <h3>📡 大手通信企業LLM知見共有</h3>
-                        <p><strong>期間:</strong> 2023年12月 - 2024年3月<br>
-                        <strong>内容:</strong> local LLM知見のドキュメント化・講師<br>
-                        生成AI・自然言語処理の最新知見をまとめ、大手通信企業の社内向けに知見共有の講師を務める。実践的なLLM活用方法を指導。</p>
-                    </div>
-                </div>
-            </section>
 
             <section class="section fade-in">
-                <h2>Skills & Expertise</h2>
+                <h2>Skills</h2>
                 <div class="skills-container">
                     <div class="skill-category">
-                        <h3>🤖 AI・機械学習</h3>
-                        <div class="skill-item">生成AI (GPT, Gemini, Bedrock)</div>
-                        <div class="skill-item">大規模言語モデル (LLM)</div>
+                        <h3>AI・機械学習</h3>
+                        <div class="skill-item">生成AI (GPT, Gemini, Claude)</div>
+                        <div class="skill-item">大規模言語モデル (LLM; Phi-4)</div>
                         <div class="skill-item">RAG (Retrieval-Augmented Generation)</div>
-                        <div class="skill-item">自然言語処理</div>
+                        <div class="skill-item">自然言語処理, 音声言語処理</div>
                         <div class="skill-item">画像処理 (YOLO, エッジAI)</div>
                         <div class="skill-item">統計的機械学習</div>
                         <div class="skill-item">MLOps</div>
                     </div>
                     <div class="skill-category">
-                        <h3>💻 プログラミング</h3>
-                        <div class="skill-item">Python</div>
+                        <h3>プログラミング</h3>
+                        <div class="skill-item">Python, C++</div>
                         <div class="skill-item">SQL</div>
                         <div class="skill-item">Docker</div>
-                        <div class="skill-item">AWS (EC2, S3, Lambda)</div>
+                        <div class="skill-item">AWS (EC2, S3, Lambda, Bedrock, Polly)</div>
                         <div class="skill-item">GCP (BigQuery)</div>
                         <div class="skill-item">Git</div>
                     </div>
                     <div class="skill-category">
-                        <h3>📊 専門領域</h3>
+                        <h3>専門領域</h3>
                         <div class="skill-item">量子情報理論</div>
                         <div class="skill-item">情報幾何学</div>
                         <div class="skill-item">数理統計学</div>
@@ -448,12 +526,10 @@
                         <div class="skill-item">認知言語学</div>
                     </div>
                     <div class="skill-category">
-                        <h3>🎯 マネジメント</h3>
+                        <h3>マネジメント</h3>
                         <div class="skill-item">組織マネジメント</div>
                         <div class="skill-item">プロダクト開発</div>
                         <div class="skill-item">人材調達・育成</div>
-                        <div class="skill-item">事業戦略</div>
-                        <div class="skill-item">顧客折衝</div>
                     </div>
                 </div>
             </section>
@@ -461,7 +537,7 @@
             <section class="section fade-in">
                 <h2>Publications & Presentations</h2>
                 <div class="publications">
-                    <h3>📄 学術論文</h3>
+                    <h3>学術論文</h3>
                     <div class="publication-item">
                         <div class="publication-title">A Fundamental Inequality for Lower-Bounding the Error Probability for Classical and Classical-Quantum Multiple Access Channels and Its Applications</div>
                         <div class="publication-details">IEICE Transactions on Fundamentals, E98.A, no.12, pp. 2376-2383, 2015</div>
@@ -469,7 +545,7 @@
                 </div>
                 
                 <div class="publications">
-                    <h3>🎤 招待講演</h3>
+                    <h3>招待講演</h3>
                     <div class="publication-item">
                         <div class="publication-title">スタートアップ・中小企業における機械学習等の研究活動</div>
                         <div class="publication-details">第45回情報理論とその応用シンポジウム (SITA2022) 基調講演, 2022年11月</div>
@@ -477,7 +553,7 @@
                 </div>
                 
                 <div class="publications">
-                    <h3>🌍 国際会議</h3>
+                    <h3>国際会議</h3>
                     <div class="publication-item">
                         <div class="publication-title">Lower bounds on the error probability in classical and quantum state discrimination</div>
                         <div class="publication-details">2012 International Symposium on Information Theory and its Applications (ISITA2012)</div>
@@ -521,14 +597,7 @@
             });
         });
 
-        // Add parallax effect to header
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const header = document.querySelector('header');
-            if (header) {
-                header.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
+        // Remove parallax effect (not needed for minimalist design)
     </script>
 </body>
 </html>
