@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="quantum" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="32" height="32" rx="6" fill="url(#bg)"/>
+  
+  <!-- Quantum circuit elements representing your research background -->
+  <g stroke="url(#quantum)" stroke-width="1.2" fill="none">
+    <!-- Horizontal lines (quantum wires) -->
+    <line x1="4" y1="10" x2="28" y2="10" opacity="0.8"/>
+    <line x1="4" y1="16" x2="28" y2="16" opacity="0.8"/>
+    <line x1="4" y1="22" x2="28" y2="22" opacity="0.8"/>
+    
+    <!-- Quantum gates -->
+    <rect x="8" y="8" width="4" height="4" rx="0.5" fill="url(#quantum)" opacity="0.9"/>
+    <rect x="20" y="14" width="4" height="4" rx="0.5" fill="url(#quantum)" opacity="0.9"/>
+    <circle cx="16" cy="22" r="2" fill="url(#quantum)" opacity="0.9"/>
+    
+    <!-- Connection lines -->
+    <line x1="10" y1="12" x2="22" y2="14" opacity="0.6"/>
+    <line x1="22" y1="18" x2="16" y2="20" opacity="0.6"/>
+  </g>
+  
+  <!-- AI/ML neural network nodes -->
+  <g fill="url(#quantum)">
+    <circle cx="6" cy="6" r="1.5" opacity="0.7"/>
+    <circle cx="26" cy="8" r="1.5" opacity="0.7"/>
+    <circle cx="26" cy="24" r="1.5" opacity="0.7"/>
+    <circle cx="6" cy="26" r="1.5" opacity="0.7"/>
+  </g>
+  
+  <!-- Subtle "Q" for Quantum -->
+  <circle cx="16" cy="8" r="3" stroke="url(#quantum)" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <line x1="17.5" y1="9.5" x2="19" y2="11" stroke="url(#quantum)" stroke-width="1.5" opacity="0.5"/>
+</svg>
